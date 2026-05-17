@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>
+                        JSでよく使われるイベントハンドラ
+                </title>
+        </head>
+        <body>
+                <p>イベントハンドラを使うことで、イベント発生時に何か処理を実行することができます。
+                <h2>マウスイベントハンドラ</h2>
+
+                <table>
+                        <thead>
+                                <tr>
+                                        <th>イベントハンドラ</th>
+                                        <th>意味</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <tr><td>onmousedown</td>
+                                <td>マウスクリックを検知</td>
+                                </tr>
+                                <tr><td>onmouseup</td>
+                                <td>マウスが離されたことを検知</td></tr>
+                                <tr><td>onclick</td>
+                                <td>マウスを押して離されたことを検知</td></tr>
+                                <tr><td>onmouseover</td>
+                                <td>マウスが乗ったことを検知する(hover)</td></tr>
+                    </tbody>
+                    </table>
+                    <h3>実践</h3>
+                    <p>下のボタンを押すと、マウスイベントの発生を確認できます。onclickは、onmousedownに瞬時に切り替わってしまうため、表示されません。</p>
+                    <input type="button" value="ボタン"
+                    onmousedown="down()" onmouseup="up()"
+                    onclick="click()" onmouseover="over()"
+                    onmouseout="out()"/>
+                    <div id="output">ボタンを...</div>
+                    <script>
+                    var output;
+                    var text = "ボタンを"
+                    function down() {
+                        output = document.getElementById("output");
+                        output.innerHTML = text + "<strong><u>押</u></strong>しました(onmousedown)";
+                    }
+                    function up() {
+                        output = document.getElementById("output");
+                        output.innerHTML = text + "<strong><u>離</u></strong>しました(onmouseup)";
+                    }
+                    
+                    function click() {
+                        output = document.getElementById("output");
+                        output.innerHTML = text + "<strong><u>クリックしました</u></strong>(onclick)";
+                    }
+                    function over() {
+                        output = document.getElementById("output");
+                        output.innerHTML = text + "<strong><u>ホバー</u></strong>しました(onmouseover)";
+                    }
+                    function out() {
+                        output = document.getElementById("output");
+                        output.innerHTML = text + "<strong><u>離</u></strong>れました(onmouseout)";
+                        
+                    }
+                    </script>
+        </body>
+        </html>
